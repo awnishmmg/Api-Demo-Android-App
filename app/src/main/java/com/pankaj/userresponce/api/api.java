@@ -1,6 +1,9 @@
 package com.pankaj.userresponce.api;
 
+import com.pankaj.userresponce.model.AddCustomerResponse;
 import com.pankaj.userresponce.model.CreateUserResponce;
+import com.pankaj.userresponce.model.GetCustomerResponse;
+import com.pankaj.userresponce.model.LogoutUserResponce;
 import com.pankaj.userresponce.model.User;
 import com.pankaj.userresponce.model.UserLoginResponse;
 
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface api {
@@ -24,7 +28,6 @@ public interface api {
     );
 
 
-
     @FormUrlEncoded
     @POST("userlogin.php")
     Call<UserLoginResponse> login(
@@ -32,4 +35,28 @@ public interface api {
             @Field ("password") String password
 
     );
+    @FormUrlEncoded
+    @POST("logoutuser.php")
+    Call<LogoutUserResponce> logout(
+            @Field("token") String token
+    );
+    @FormUrlEncoded
+    @POST("addcustomer.php")
+    Call<AddCustomerResponse> addCustomer(
+            @Field("name") String name,
+            @Field("email")String email,
+            @Field("mobile") String mobile,
+            @Field("address") String address,
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("getcustomer.php")
+    Call<GetCustomerResponse> getCustomerList(
+            @Field("user_id") String user_id
+    );
+
+
+
+
 }

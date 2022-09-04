@@ -2,6 +2,8 @@ package com.pankaj.userresponce;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -27,6 +29,15 @@ public class Login extends AppCompatActivity {
          et_email=(EditText) findViewById(R.id.et_email);
          et_password=(EditText) findViewById(R.id.et_password);
 
+         SharedPreferences sp=getSharedPreferences("user_data",MODE_PRIVATE);
+         String spemail=sp.getString("uemail","");
+         if(!spemail.equals("")){
+             Intent i=new Intent(getApplicationContext(),Dashboard.class);
+             startActivity(i);
+             finish();
+         }
+
+
     }
     public void UserLogin(View view) {
         String email=et_email.getText().toString().trim();
@@ -44,18 +55,46 @@ public class Login extends AppCompatActivity {
             public void onResponse(Call<UserLoginResponse> call, Response<UserLoginResponse> response) {
               if (response.isSuccessful()){
                   UserLoginResponse userLoginResponse=response.body();
-                  Toast.makeText(Login.this, ""+userLoginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                  if (userLoginResponse.isStatus()){
+                      Toast.makeText(Login.this, ""+userLoginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                      // recieve data from server and api
 
-                  // how to take data
+                      ArrayList<User> users= userLoginResponse.getData();
+//                      String uname=user.get(0).getName();
+//                      String uemail=user.get(0).getEmail();
+//                      String upass=user.get(0).getPassword();
+//                      String token=user.get(0).getToken();
+//                      Toast.makeText(Login.this, "name"+uname, Toast.LENGTH_SHORT).show();
 
-                 ArrayList<User> user= userLoginResponse.getData();
-                 String uname=user.get(0).getName();
-                 String uemail=user.get(0).getEmail();
-                 String upass=user.get(0).getPassword();
-                 String token=user.get(0).getToken();
+                      SharedPreferences sp=getSharedPreferences("user_data",MODE_PRIVATE);
+                      SharedPreferences.Editor editor=sp.edit();
 
-                  Toast.makeText(Login.this, "name"+uname, Toast.LENGTH_SHORT).show();
+                      editor.putString("uid",users.get(0).getId());
 
+                      editor.putString("uname",users.get(0).getName());
+
+                      editor.putString("uemail",users.get(0).getEmail());
+
+                      editor.putString("upassword",users.get(0).getPassword());
+
+                      editor.putString("umobile",users.get(0).getMobile());
+
+                      editor.putString("udate_time",users.get(0).date_time);
+                      editor.putString("ustatus",users.get(0).getStatus());
+                      editor.putString("utoken",users.get(0).getToken());
+                      editor.commit();
+
+                      Intent i=new Intent(getApplicationContext(),Dashboard.class);
+                      startActivity(i);
+                      finish();
+
+
+
+
+
+                  }else{
+                      Toast.makeText(Login.this, ""+userLoginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                  }
               }
             }
 
