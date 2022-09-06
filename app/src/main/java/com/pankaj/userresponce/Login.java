@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
 
          SharedPreferences sp=getSharedPreferences("user_data",MODE_PRIVATE);
          String spemail=sp.getString("uemail","");
+
          if(!spemail.equals("")){
              Intent i=new Intent(getApplicationContext(),Dashboard.class);
              startActivity(i);

@@ -1,6 +1,7 @@
 package com.pankaj.userresponce.api;
 
 import com.pankaj.userresponce.model.AddCustomerResponse;
+import com.pankaj.userresponce.model.AddTransactionResponse;
 import com.pankaj.userresponce.model.CreateUserResponce;
 import com.pankaj.userresponce.model.GetCustomerResponse;
 import com.pankaj.userresponce.model.LogoutUserResponce;
@@ -53,9 +54,20 @@ public interface api {
     @FormUrlEncoded
     @POST("getcustomer.php")
     Call<GetCustomerResponse> getCustomerList(
-            @Field("user_id") String user_id
+            @Field("user_id") int user_id
     );
 
+    @FormUrlEncoded
+    @POST("addtransaction.php")
+    Call<AddTransactionResponse> addTransaction(
+          @Field("user_id") int user_id,
+          @Field("customer_id") int customer_id,
+          @Field("amount") String amount,
+          @Field("type") String amount_type,
+          @Field("title") String title,
+          @Field("description") String description
+
+);
 
 
 

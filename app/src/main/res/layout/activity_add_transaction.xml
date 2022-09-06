@@ -47,10 +47,9 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:hint="Title"
-
             android:layout_height="wrap_content" >
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/amount_title"
+                android:id="@+id/et_trans_title"
                 android:layout_width="match_parent"
                 android:drawablePadding="5dp"
                 android:lines="1"
@@ -67,7 +66,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:id="@+id/sp_customer"
-                android:layout_height="match_parent" />
+                android:layout_height="50dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -85,7 +84,7 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:id="@+id/rg_type"
+                android:id="@+id/rg_amount"
                 android:layout_height="wrap_content" >
 
                 <RadioButton
@@ -105,20 +104,21 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:hint="Amount"
-            android:layout_height="wrap_content" >
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Amount"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:hint="Amount"-->
+<!--            android:layout_height="wrap_content" >-->
+
+            <EditText
+                android:id="@+id/et_trans_amount"
                 android:layout_width="match_parent"
-                android:inputType="number"
                 android:drawablePadding="5dp"
+                android:inputType="number"
                 android:lines="1"
                 android:drawableTint="@color/black"
-
                 android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -126,7 +126,7 @@
 
             android:layout_height="wrap_content" >
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Description"
+                android:id="@+id/et_trans_description"
                 android:layout_width="match_parent"
                 android:lines="1"
                 android:drawablePadding="5dp"
@@ -136,7 +136,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/update"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -144,12 +144,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            android:onClick="AddTransaction"
-
+            android:onClick="addTransaction"
             android:text="Add Transaction"
-            android:textSize="15dp">
+            />
 
-        </Button>
 
 
     </LinearLayout>

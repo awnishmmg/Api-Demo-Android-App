@@ -1,7 +1,9 @@
 package com.pankaj.userresponce.model;
 
+import androidx.annotation.NonNull;
+
 public class Customer {
-    public String id;
+    public int id;
     public String name;
     public String mobile;
     public String email;
@@ -9,7 +11,7 @@ public class Customer {
     public String date_time;
     public String created_by;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -35,5 +37,10 @@ public class Customer {
 
     public String getCreated_by() {
         return created_by;
+    }
+
+    @Override
+    public String toString() {
+        return name.toString();
     }
 }

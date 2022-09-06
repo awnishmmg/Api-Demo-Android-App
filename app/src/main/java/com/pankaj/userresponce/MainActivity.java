@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         et_mobile = (EditText) findViewById(R.id.et_mobile);
         et_password = (EditText) findViewById(R.id.et_password);
         submit=(Button) findViewById(R.id.submit);
+        SharedPreferences sp=getSharedPreferences("user_data",MODE_PRIVATE);
+        String id=sp.getString("uid","");
+        Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
+
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
