@@ -89,14 +89,14 @@
 
                 <RadioButton
                     android:layout_width="match_parent"
-                    android:text="Debit"
+                    android:text="debit"
                     android:onClick="checkType"
                     android:textSize="20sp"
                     android:layout_height="match_parent" />
 
                 <RadioButton
                     android:layout_width="match_parent"
-                    android:text="Credit"
+                    android:text="credit"
                     android:textSize="20sp"
                     android:onClick="checkType"
                     android:layout_height="match_parent" />

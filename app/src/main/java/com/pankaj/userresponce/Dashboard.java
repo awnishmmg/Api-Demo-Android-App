@@ -84,4 +84,11 @@ finish();
 
     }
 
+    public void getAllTransaction(View view) {
+            Intent intent = new Intent(Dashboard.this,GetAllTransactionActivity.class);
+            startActivity(intent);
+            finish();
+
+
+    }
 }

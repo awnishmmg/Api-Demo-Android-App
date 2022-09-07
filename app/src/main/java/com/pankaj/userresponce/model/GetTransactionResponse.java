@@ -1,14 +1,14 @@
 package com.pankaj.userresponce.model;
 
 
-
 import java.util.ArrayList;
 
-public class AddTransactionResponse {
+public class GetTransactionResponse{
     public int code;
     public String message;
     public boolean status;
-    public ArrayList<Object> data;
+    public ArrayList<Transaction> data;
+    public ArrayList<ExtraData> extra_data;
     public boolean error;
 
     public int getCode() {
@@ -23,11 +23,16 @@ public class AddTransactionResponse {
         return status;
     }
 
-    public ArrayList<Object> getData() {
+    public ArrayList<Transaction> getData() {
         return data;
+    }
+
+    public ArrayList<ExtraData> getExtra_data() {
+        return extra_data;
     }
 
     public boolean isError() {
         return error;
     }
 }
+

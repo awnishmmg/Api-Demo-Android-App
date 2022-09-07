@@ -17,6 +17,12 @@
         android:layout_height="wrap_content" />
     <Button
         android:layout_width="match_parent"
+        android:text="Show Transaction"
+        android:onClick="getAllTransaction"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="match_parent"
         android:text="Add Transaction"
         android:onClick="AddTransaction"
         android:layout_height="wrap_content" />

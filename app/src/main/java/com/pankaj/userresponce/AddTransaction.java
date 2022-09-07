@@ -133,6 +133,10 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
                     if (addTransactionResponse.isStatus()){
                         Toast.makeText(AddTransaction.this, "right"+addTransactionResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
+                          Intent intent = new Intent(AddTransaction.this,GetAllTransactionActivity.class);
+                          startActivity(intent);
+                          finish();
+
                     }else{
                         Toast.makeText(AddTransaction.this, "hello"+addTransactionResponse.getMessage(), Toast.LENGTH_SHORT).show();
                     }

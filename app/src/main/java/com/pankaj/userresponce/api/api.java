@@ -4,6 +4,7 @@ import com.pankaj.userresponce.model.AddCustomerResponse;
 import com.pankaj.userresponce.model.AddTransactionResponse;
 import com.pankaj.userresponce.model.CreateUserResponce;
 import com.pankaj.userresponce.model.GetCustomerResponse;
+import com.pankaj.userresponce.model.GetTransactionResponse;
 import com.pankaj.userresponce.model.LogoutUserResponce;
 import com.pankaj.userresponce.model.User;
 import com.pankaj.userresponce.model.UserLoginResponse;
@@ -66,8 +67,13 @@ public interface api {
           @Field("type") String amount_type,
           @Field("title") String title,
           @Field("description") String description
+    );
 
-);
+    @FormUrlEncoded
+    @POST("gettransaction.php")
+    Call<GetTransactionResponse> getAllTransactiondata(
+            @Field("user_id") int user_id
+    );
 
 
 
